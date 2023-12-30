@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+}
+
+group = 'me.byteful.dedicatedbedwars'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'jitpack'
+        url = 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    implementation 'dev.hollowcube:minestom-ce:78cb62fa72'
+    implementation 'org.slf4j:slf4j-api:2.0.10'
+    implementation 'org.slf4j:slf4j-simple:2.0.10'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'me.byteful.dedicatedbedwars.Main'
+    }
+}
+
+shadowJar {
+    archiveBaseName.set("DedicatedBedwars")
+    archiveClassifier.set("")
+}
